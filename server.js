@@ -27,7 +27,7 @@ const requestListener = async (req, res) => {
 	// console.log("req from " + req.headers['x-forwarded-for']);
 	const img = image.clone();
 
-	img.print(font, 4, 132, req.socket.remoteAddress);
+	img.print(font, 4, 132,  req.headers['x-forwarded-for']);
 
 	res.setHeader("Content-Type", "image/jpg"); 
 	res.writeHead(200);
